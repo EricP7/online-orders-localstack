@@ -1,0 +1,12 @@
+services:
+  localstack:
+    image: localstack/localstack:2026.10.1
+    container_name: localstack-main
+    ports:
+      - "127.0.0.1:4566:4566"
+      - "127.0.0.1:4510-4559:4510-4559"
+    env_file:
+      - path: .env.localstack
+        required: false
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
